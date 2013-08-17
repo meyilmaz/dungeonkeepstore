@@ -1,2 +1,16 @@
 {% extends "base.htm" %}
 {% block title %}Dungeon Store - Gate{% end %}
+  {% block menu %}
+    <div class="navbar">
+	          <div class="navbar-inner">
+	            <div class="container">
+	              <ul class="nav">
+                    {% for menu in menulinks %}
+	                    <li {% if menu.get('active') == True %}class="active"{% end %}><a href="#">{{ menu.get('link_name') }}</a></li>
+                    {% end %}
+	              </ul>
+	            </div>
+	          </div>
+	        </div>
+
+    {% end %}

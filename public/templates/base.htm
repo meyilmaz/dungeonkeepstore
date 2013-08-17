@@ -1,8 +1,15 @@
 <html>
   <head>
     <title>{% block title %}Dungeon Store - Home{% end %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
+      {% block optional_js %}
+      <script src="http://code.jquery.com/jquery.js"></script>
+      <script src="static/bootstrap/js/bootstrap.min.js"></script>
+      {% end %}
+      {% block menu %}
     <ul>
       {% for category in categories %}
         {% block category %}
@@ -10,5 +17,14 @@
         {% end %}
       {% end %}
     </ul>
+      {% end %}
+      <div id="main_content">
+      {% block main_content %}
+         Good times at hackathons!
+      {% end %}      
+      </div>
+             
+        
+      
   </body>
 </html>
