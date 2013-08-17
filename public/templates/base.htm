@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <title>{% block title %}Dungeon Store - Home{% end %}</title>
+  </head>
+  <body>
+    <ul>
+      {% for category in categories %}
+        {% block category %}
+          <li>{{ escape(category.get("name")) }}</li>
+        {% end %}
+      {% end %}
+    </ul>
+  </body>
+</html>
