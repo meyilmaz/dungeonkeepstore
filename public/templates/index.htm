@@ -1,16 +1,50 @@
 {% extends "base.htm" %}
 {% block title %}Dungeon Store - Gate{% end %}
-  {% block menu %}
-    <div class="navbar">
-	          <div class="navbar-inner">
-	            <div class="container">
-	              <ul class="nav">
-                    {% for menu in menulinks %}
-	                    <li {% if menu.get('active') == True %}class="active"{% end %}><a href="#">{{ menu.get('link_name') }}</a></li>
-                    {% end %}
-	              </ul>
-	            </div>
-	          </div>
-	        </div>
 
-    {% end %}
+{%block main_content %}
+<div class="hero-unit">
+   <div id="myCarousel" class="carousel slide">
+    <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+    <div class="active item"><h1>Build, Share, Game!!</h1>
+    <img src="/static/img/heart_50.png" class="pull-left" >
+    <p class="well">Introducting the official DungeonKeep Store!  
+        Have you built an amazing campaign in D&amp;D and wish you could share it or even get paid for it?  
+        Do you wish you could play test a campaign?  
+        The Dungeon Keep store puts more resoures at your fingertips 
+        than your dark heart could ever desire!</p>
+    <a href="/login" class="btn btn-large btn-success">Get Started</a>
+    </div>
+    <div class="item"><h1>Earn experience</h1>
+        <img src="/static/img/dirk.png" class="pull-left" >
+        <p class="well">
+            Explore the website and earn XP.  Share with the community and earn XP.  
+            When you earn XP, you will be able to earn access to special content and be 
+            able to use it to gain access to more advanced community campaigns and materials.<br>
+            <br>
+            Feel confident sharing material that you are sharing with active community members who give back by setting minimum XP limits!
+        </p>
+        </div>
+        <div class="item">
+            <h1>All about the doubloons baby!</h1>
+            <img src="/static/img/th.png" class="pull-left" >
+            <p class="well">
+                Sell materials and products for gold points, or buy gold points for material you worked hard on.<br>
+                You choose how to offer your materials - the experience limit and gold point costs.<br>
+                If people love your material, you can recycle the gold to buy new D&amp;D materials.<br>
+                Create gaming materials, artwork or even apps and earn gold or recieve donations.
+            </p>
+        </div>
+        
+    </div>
+    <!-- Carousel nav -->
+    
+    </div>
+    
+ </div>
+{% end %}

@@ -3,21 +3,42 @@
     <title>{% block title %}Dungeon Store - Home{% end %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="static/css/navigation.css" rel="stylesheet" media="screen">
+    <link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" media="screen">
   </head>
   <body>
       {% block optional_js %}
       <script src="http://code.jquery.com/jquery.js"></script>
       <script src="static/bootstrap/js/bootstrap.min.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+      {% end %}
+      {%if not auth %}
+      {% include login_dialog.htm %}
+      {% else %}
+      <!-- do something, you are logged in -->
       {% end %}
       {% block menu %}
-    <ul>
-      {% for category in categories %}
-        {% block category %}
-          <li>{{ escape(category.get("name")) }}</li>
-        {% end %}
-      {% end %}
-    </ul>
-      {% end %}
+       <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav pull-right">
+                {% for menu in menulinks %}
+                    <li {% if menu.get('class') %} class="{{ menu.get('class') }}"{% end %}><a href={% if menu.get('href') %}"{{menu.get('href')}}"{% else %}}"#"{% end %}>{{ menu.get('link_name') }}</a>{%if not menu.get('dropdown')%}</li>{% end %}
+                  {% if menu.get('dropdown') %}
+                    <ul class="dropdown-menu">
+                    {% for item in menu.get('dropdown') %}
+                       <li {% if item.get('class') %} class="{{ item.get('class') }}"{% end %}><a href={% if item.get('href') %}"{{item.get('href')}}"{% else %}}"#"{% end %}>{{ item.get('link_name') }}</a></li>
+                    {% end %}
+                    </ul>
+                    </li>
+                  {% end %}
+                {% end %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+    {% end %}
       <div id="main_content">
       {% block main_content %}
          Good times at hackathons!

@@ -1,0 +1,43 @@
+{% extends "base.htm" %}
+{%block main_content %}
+<div id="home" class="row">
+    <div id="home_character" class="span8 offset1">
+        
+        
+        <div class="media well">
+            <h2>Character</h2>
+            <a class="pull-left" href="#">
+            <img class="media-object" data-src="holder.js/64x64" src="/static/img/dirk_face_kid.jpg">
+            </a>
+            <div class="media-body">
+            <h4 class="media-heading">Name:</h4><p>Dirkish</p>
+            <h4 class="media-heading">IRL:</h4><p>Mehmet</p>    
+            <h4 class="media-heading">Class:</h4><p>Knight</p>
+            <h4 class="media-heading">Experience Level:</h4><p>Master</p>
+            <h4 class="media-heading">Email:</h4><p>{{ auth.get('email') }}</p>
+            </div>
+        </div>
+        
+            
+    </div>
+    <div id="home_actions" class="span6 offset1">
+        <div class="row-fluid">
+            
+        
+        <p class="well">
+            <b>Recent actions</b><br><br>
+                    <span class="alert alert-info span11">5 users have downloaded your campain "Dragon's Lair"</span><br><br>
+                    <span class="alert alert-error span11"><img src="/static/img/spent.png">You have spent 3 gp to get <a href="">"Dirk fan art"</a> </span><br><br>
+                    <span class="alert alert-success span11"><img src="/static/img/exp.png">You have earned 2 xp for logging in</a> </span><br>
+            <b>More...</b>
+        </p>
+        </div>
+    </div>
+    
+</div>
+<div class="well span12 offset1">
+    Your purchases
+</div>
+</div>
+
+{% end %}
